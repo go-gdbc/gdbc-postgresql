@@ -3,7 +3,7 @@ package postgresql
 import (
 	"errors"
 	"github.com/go-gdbc/gdbc"
-	_ "gorm.io/driver/postgres"
+	_ "github.com/jackc/pgx/v4"
 	"strings"
 )
 
