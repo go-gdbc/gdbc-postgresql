@@ -7,8 +7,8 @@ import (
 	"strings"
 )
 
-const PostgresDefaultHost = "localhost"
-const PostgresDefaultPort = "5432"
+const DefaultHost = "localhost"
+const DefaultPort = "5432"
 
 func init() {
 	gdbc.Register("pgx", "postgresql", &PostgresDataSourceNameAdapter{})
@@ -19,8 +19,8 @@ type PostgresDataSourceNameAdapter struct {
 
 func (dsnAdapter PostgresDataSourceNameAdapter) GetDataSourceName(dataSource gdbc.DataSource) (string, error) {
 	dsn := ""
-	host := PostgresDefaultHost
-	port := PostgresDefaultPort
+	host := DefaultHost
+	port := DefaultPort
 	user := ""
 	password := ""
 	databaseName := ""

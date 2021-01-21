@@ -43,8 +43,8 @@ func TestPostgresDataSourceNameAdapter_GetDataSourceNameWithoutUser(t *testing.T
 func TestPostgresDataSourceNameAdapter_GetDataSourceNameWithoutUserAndPort(t *testing.T) {
 	dsn, err := getDSN(t, "gdbc:postgresql://localhost/testdb?sslmode=disable&TimeZone=Asia/Shanghai")
 	assert.Nil(t, err)
-	assert.True(t, strings.Contains(dsn, "host=localhost"))
-	assert.True(t, strings.Contains(dsn, "port="+PostgresDefaultPort))
+	assert.True(t, strings.Contains(dsn, "host="+DefaultHost))
+	assert.True(t, strings.Contains(dsn, "port="+DefaultPort))
 	assert.True(t, strings.Contains(dsn, "user= "))
 	assert.True(t, strings.Contains(dsn, "password= "))
 	assert.True(t, strings.Contains(dsn, "dbname=testdb"))
@@ -55,8 +55,8 @@ func TestPostgresDataSourceNameAdapter_GetDataSourceNameWithoutUserAndPort(t *te
 func TestPostgresDataSourceNameAdapter_GetDataSourceNameWithoutUserAndHostAndPort(t *testing.T) {
 	dsn, err := getDSN(t, "gdbc:postgresql:testdb?sslmode=disable&TimeZone=Asia/Shanghai")
 	assert.Nil(t, err)
-	assert.True(t, strings.Contains(dsn, "host="+PostgresDefaultHost))
-	assert.True(t, strings.Contains(dsn, "port="+PostgresDefaultPort))
+	assert.True(t, strings.Contains(dsn, "host="+DefaultHost))
+	assert.True(t, strings.Contains(dsn, "port="+DefaultPort))
 	assert.True(t, strings.Contains(dsn, "user= "))
 	assert.True(t, strings.Contains(dsn, "password= "))
 	assert.True(t, strings.Contains(dsn, "dbname=testdb"))
@@ -67,8 +67,8 @@ func TestPostgresDataSourceNameAdapter_GetDataSourceNameWithoutUserAndHostAndPor
 func TestPostgresDataSourceNameAdapter_GetDataSourceNameWithoutUserAndHostAndPortAndDatabase(t *testing.T) {
 	dsn, err := getDSN(t, "gdbc:postgresql:?sslmode=disable&TimeZone=Asia/Shanghai")
 	assert.Nil(t, err)
-	assert.True(t, strings.Contains(dsn, "host="+PostgresDefaultHost))
-	assert.True(t, strings.Contains(dsn, "port="+PostgresDefaultPort))
+	assert.True(t, strings.Contains(dsn, "host="+DefaultHost))
+	assert.True(t, strings.Contains(dsn, "port="+DefaultPort))
 	assert.True(t, strings.Contains(dsn, "user= "))
 	assert.True(t, strings.Contains(dsn, "password= "))
 	assert.True(t, strings.Contains(dsn, "dbname= "))
