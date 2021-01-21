@@ -9,6 +9,7 @@ import (
 
 const DefaultHost = "localhost"
 const DefaultPort = "5432"
+const DefaultUser = "postgres"
 
 func init() {
 	gdbc.Register("pgx", "postgresql", &PostgresDataSourceNameAdapter{})
@@ -21,7 +22,7 @@ func (dsnAdapter PostgresDataSourceNameAdapter) GetDataSourceName(dataSource gdb
 	dsn := ""
 	host := DefaultHost
 	port := DefaultPort
-	user := ""
+	user := DefaultUser
 	password := ""
 	databaseName := ""
 
